@@ -17,14 +17,14 @@ import testBase.Baseclass;
 
 public class AdminUserSteps extends Baseclass
 {
-/*----------**** Login into ParkLens Admin portal	***--------------*/
+/*------------------------------------ Login into ParkLens Admin portal -----------------------------------------*/
 	
 	
 	@Given("The admin launches the Chrome browser")
 	public void the_admin_launch_the_chrome_browser()
 	{
-		launchChromeBrowser();
-		log=new TestLogin(driver);
+	    launchChromeBrowser();
+	    log=new TestLogin(driver);
 	    adminUser=new TestAddAdminUsers(driver);
 	    homePage=new TestHomePage(driver);
 	}
@@ -32,8 +32,8 @@ public class AdminUserSteps extends Baseclass
 	@Then("Close the chrome browser")
 	public void Close_the_chrome_browser()
 	{
-//		driver.close();
-		closeapp();
+//	    driver.close();
+	    closeapp();
 	}
 	@When("The admin enters the URL as {string}")
 	public void the_admin_enter_the_url(String URL) 
@@ -76,8 +76,8 @@ public class AdminUserSteps extends Baseclass
 	@When("Clicks the logout link")
 	public void clicks_the_logout_link() throws InterruptedException 
 	{
-		System.out.println("save");
-		Thread.sleep(2000);
+            System.out.println("save");
+	    Thread.sleep(2000);
 	    log.clicksLogout();
 	}
 
@@ -139,7 +139,7 @@ public class AdminUserSteps extends Baseclass
 	    log.setPassword("");
 	}
 	
-/*----------**** Creating a new admin user	***--------------*/
+/*---------------------------------------- Creating a new admin user ---------------------------------------------*/
 
 	@When("Clicks the setting side menu")
 	public void clicks_the_settings_menu() throws InterruptedException 
@@ -151,15 +151,15 @@ public class AdminUserSteps extends Baseclass
 	@When("Clicks the admin users header tab")
 	public void clicks_the_admin_user_tab() throws InterruptedException 
 	{
-		attributeValue=new TestAttributeValues(driver);
+	    attributeValue=new TestAttributeValues(driver);
 	    attributeValue.clickOnHeaderTab("Admin Users");
-		Thread.sleep(2000);
+	    Thread.sleep(2000);
 	}
 
 	@When("Clicks the new button")
 	public void clicks_the_new_button() throws InterruptedException 
 	{
-	  adminUser.clicksNewButton();
+	    adminUser.clicksNewButton();
 	}
 
 	@Then("Verify i navigate to the add admin user page")
@@ -171,7 +171,8 @@ public class AdminUserSteps extends Baseclass
 		System.out.println("2----add admin anil------"+attributes.getAddPageHeaderLable());
 		
     }
-	
+
+
 //	@When("Enter the name as {string} and mobile number as {string}  and email as {string} password as {string} and retypepassword as {string}")
 //	public void fill_all_the_required_user_information(String Name,String Mobile,String Email,String Password,String RetypePassword,DataTable dataTable ) throws InterruptedException {
 	
@@ -186,7 +187,7 @@ public class AdminUserSteps extends Baseclass
 //	    String password = data.get(0).get("Password");
 //	    String retypePassword = data.get(0).get("RetypePassword");
 //	    
-//	      adminUser.setName(name);
+//	          adminUser.setName(name);
 //		  adminUser.setMobileNumber(mobile);
 //		  adminUser.setEmail(email);
 //		  adminUser.setPassword(password);
@@ -195,19 +196,23 @@ public class AdminUserSteps extends Baseclass
 //		  adminUser.setInactiveStatus();
 //		  adminUser.setActiveStatus();
 //	}
+
+
+/*--------------------------------------------------Data driven testing Using excel data-----------------------------------------------------------------*/
+
 	
 //	private String adminName;
 //	@When("Fill all the required user information:")
 //	public void fill_all_the_required_user_information() throws InterruptedException, IOException 
 //	{
 //	    
-//		String path="./excel-datas/Datadriver.xlsx";
-//	    utilitydata=new Xlxutility(path);
-//		int totalRow=utilitydata.getRowCount("Sheet1");
+//	      String path="./excel-datas/Datadriver.xlsx";
+//	      utilitydata=new Xlxutility(path);
+//	      int totalRow=utilitydata.getRowCount("Sheet1");
 //		
 //		for(int r=1;r<=totalRow;r++)
 //		{
-//			 String exp="https://parklens-admin.tech-active.com/settings/admin-user";
+//		     String exp="https://parklens-admin.tech-active.com/settings/admin-user";
 //		     String act=driver.getCurrentUrl();
 //		   
 //		     if(exp.equals(act))
@@ -216,32 +221,31 @@ public class AdminUserSteps extends Baseclass
 //		     }
 //		
 //		    	    adminName=utilitydata.getCellData("Sheet1", r, 0);
-//					String emailId=utilitydata.getCellData("Sheet1", r, 1);
-//					String mobileNum=utilitydata.getCellData("Sheet1", r, 2);
-//					String password=utilitydata.getCellData("Sheet1", r, 3);
-//					String retypePassword=utilitydata.getCellData("Sheet1", r, 4);
-//					String role=utilitydata.getCellData("Sheet1", r, 5);
+//			    String emailId=utilitydata.getCellData("Sheet1", r, 1);
+//			    String mobileNum=utilitydata.getCellData("Sheet1", r, 2);
+//			    String password=utilitydata.getCellData("Sheet1", r, 3);
+//			    String retypePassword=utilitydata.getCellData("Sheet1", r, 4);
+//			    String role=utilitydata.getCellData("Sheet1", r, 5);
 //					
-//					  adminUser.setName(adminName);
-//					  adminUser.setMobileNumber(mobileNum);
-//					  adminUser.setEmail(emailId);
-//					  adminUser.setPassword(password);
-//					  adminUser.setRetypePassword(retypePassword);
-//					  adminUser.setAdminRole(role);
-//					  adminUser.setInactiveStatus();
-//					  adminUser.setActiveStatus();
-//					  adminUser.clicksSaveButton();
-//					  Thread.sleep(1000);
-//					  adminUser.clicksOkButtonInConfirmPopup();
-//					  Thread.sleep(1000);
-//					  adminUser.clicksCancelButton(); 
+//			    adminUser.setName(adminName);
+//			    adminUser.setMobileNumber(mobileNum);
+//			    adminUser.setEmail(emailId);
+//			    adminUser.setPassword(password);
+//                          adminUser.setRetypePassword(retypePassword);
+//			    adminUser.setAdminRole(role);
+//                          adminUser.setInactiveStatus();
+//	                    adminUser.setActiveStatus();
+//	                    adminUser.clicksSaveButton();
+//			    Thread.sleep(1000);
+//	                    adminUser.clicksOkButtonInConfirmPopup();
+//			    Thread.sleep(1000);
+//		            adminUser.clicksCancelButton(); 
 //					  
 //		}
 //     }
 	@When("Fill all the required user information:")
 	public void fill_all_the_required_user_information() throws InterruptedException, IOException 
 	{
-		System.out.println("-----anil-------");
 		  adminUser.setName(randomName());
 		  adminUser.setMobileNumber(randomMobileNumber());
 		  adminUser.setEmail(randomEmail());
@@ -250,7 +254,6 @@ public class AdminUserSteps extends Baseclass
 		  adminUser.setAdminRole("ADMIN");
 		  adminUser.setInactiveStatus();
 		  adminUser.setActiveStatus();
-		  System.out.println("3----add admin anil------");
 		 
 	}
 	
@@ -266,12 +269,12 @@ public class AdminUserSteps extends Baseclass
 		  adminUser.scrollIntoView(driver, savebutton);
 		  Thread.sleep(1000);
 		  System.out.println("anil scrollIntoView");
-	      adminUser.clicksSaveButton();
-	      System.out.println("click on save btn");
+	          adminUser.clicksSaveButton();
+	          System.out.println("click on save btn");
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+		   System.out.println(e);
 		}
 	}
 	
@@ -325,7 +328,7 @@ public class AdminUserSteps extends Baseclass
 	@When("Enter the id into search textfield")
 	public void enter_the_admin_user_id_into_search_textfield() throws InterruptedException 
 	{   
-		Thread.sleep(2000);
+	    Thread.sleep(2000);
 	    id=homePage.getnewAddedUserId(driver);
 	    Thread.sleep(2000);
 	    homePage.EnterdataIntoSearchField(id);
@@ -370,7 +373,7 @@ public class AdminUserSteps extends Baseclass
 	@Then("The admin users should successfully updated with confirmation message")
 	public void the_admin_users_should_successfully_updated_with_confirmation_message() throws InterruptedException 
 	{
-		Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
+	    Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 	}
 	
@@ -383,13 +386,13 @@ public class AdminUserSteps extends Baseclass
 	public void get_the_first_id_in_the_table() 
 	{
 	    getfirstid=driver.findElement(By.xpath("((//tbody/tr)[1]/td)[1]")).getText();
-		System.out.println("id : "+getfirstid);
+	    System.out.println("id : "+getfirstid);
 	}
 
 	@Then("The admin user should successfully deleted with confirmation message")
 	public void the_admin_user_should_successfully_deleted_with_confirmation_message() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.ConfirmationMassageDisplayed(), true);
 	}
 
