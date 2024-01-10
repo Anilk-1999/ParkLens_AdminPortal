@@ -15,7 +15,7 @@ public class CamerasSteps extends Baseclass
 	@When("Clicks the cameras side menu")
 	public void clicks_the_cameras_side_menu() throws InterruptedException 
 	{
-        String sideMenuName="Camera";
+            String sideMenuName="Camera";
 		
 	    adminUser=new TestAddAdminUsers(driver);
 	    adminUser.clicksSideMenu(sideMenuName); 
@@ -25,7 +25,7 @@ public class CamerasSteps extends Baseclass
 	@Then("Make sure that the camera information page should appears")
 	public void make_sure_that_the_camera_information_page_should_appears() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getHomePageHeaderLable(), "Cameras");
 	}
 
@@ -38,7 +38,6 @@ public class CamerasSteps extends Baseclass
 	@When("Fill all the required camera informations:")
 	public void fill_all_the_required_camera_informations() throws InterruptedException 
 	{
-		System.out.println("1-------anil-------");
 		   sites=new TestSites(driver);
 		   Thread.sleep(2000);
 		   sites.selectParticularClientOnDropdown("Anil-Client");
@@ -47,22 +46,22 @@ public class CamerasSteps extends Baseclass
 		   Thread.sleep(2000);
 		   lots.selectParticularSiteOnDropdown("Anil-Site");
 //		   lots.selectSiteOnDropdownRandomly();
-		   	System.out.println("2-------anil-------");
 		   cameras=new TestCameras(driver);
 		   Thread.sleep(2000);
-		   try {
-		   cameras.setLotRandomlyOnDropdown();
-		   System.out.println("-------anil kumar-------");
-//		   cameras.setParticularLotOnDropdown("lotA");
-		   System.out.println("3-------anil-------");
-		   cameras.setCameraName("Camera A");
-		   Thread.sleep(1000);
-		   cameras.setAllStallsOnDropdown();
-		   Thread.sleep(1000);
-		   cameras.setCameraURL("https://www.cameras.in");
-		   Thread.sleep(500);
-		   }catch(Exception e) {
-			   System.out.println("anil : "+e);
+		   try 
+	            {
+		      cameras.setLotRandomlyOnDropdown();
+//		      cameras.setParticularLotOnDropdown("lotA");
+		      cameras.setCameraName("Camera A");
+		      Thread.sleep(1000);
+		      cameras.setAllStallsOnDropdown();
+		      Thread.sleep(1000);
+		      cameras.setCameraURL("https://www.cameras.in");
+		      Thread.sleep(500);
+		   }
+		   catch(Exception e) 
+		   {
+		      System.out.println("anil : "+e);
 		   }
 		   
 	}
@@ -86,8 +85,8 @@ public class CamerasSteps extends Baseclass
 	@Then("Verify i should navigate to the edit camera page")
 	public void verify_i_should_navigate_to_the_edit_camera_page() throws InterruptedException 
 	{
-//		attributes=new TestAttributes(driver);
-//		System.out.println("anil : "+attributes.getEditPageHeaderLable());
+//	    attributes=new TestAttributes(driver);
+//	    System.out.println("anil : "+attributes.getEditPageHeaderLable());
 //	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Camera Camera A Stalls");
 //	    System.out.println("anil");
 	}
@@ -95,27 +94,25 @@ public class CamerasSteps extends Baseclass
 	@When("Change all the required camera informations:")
 	public void change_all_the_required_camera_informations() 
 	{
-		System.out.println("anil kumar1");
 	   cameras=new TestCameras(driver);
 	   cameras.setCameraName("Camera B");
-	   System.out.println("anil kumar2");
 	}
 
 	@Then("The camera should successfully updated with confirmation message")
 	public void the_camera_should_successfully_updated_with_confirmation_message() throws InterruptedException 
 	{
-		Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
+	    Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 	}
 	
 	
-	/*--------------------------------Camera update-----------------------------------------------------*/		
+	/*--------------------------------Camera Deletion-----------------------------------------------------*/		
 	
 	@Then("The camera should successfully deleted with confirmation message")
 	public void The_camera_should_successfully_deleted_with_confirmation_message() throws InterruptedException
 	{
-		attributes=new TestAttributes(driver);
-		Assert.assertEquals(true, attributes.ConfirmationMassageDisplayed());
+	    attributes=new TestAttributes(driver);
+	    Assert.assertEquals(true, attributes.ConfirmationMassageDisplayed());
 	}
 	
 }
