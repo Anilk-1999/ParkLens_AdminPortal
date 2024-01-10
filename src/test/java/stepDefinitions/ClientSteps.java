@@ -153,7 +153,7 @@ public class ClientSteps extends Baseclass
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 	}
 	
-/*  ------------------------------	Client update -----------------------------------------------------*/
+/*  ------------------------------Kebab menu redirections -----------------------------------------------------*/
 	
 	@When("Click on kebab menu icon")
 	public void click_on_kebab_menu_icon() throws InterruptedException 
