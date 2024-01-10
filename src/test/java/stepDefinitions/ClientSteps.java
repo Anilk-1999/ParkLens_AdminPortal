@@ -16,7 +16,7 @@ import testBase.Baseclass;
 public class ClientSteps extends Baseclass
 {
 
-//  -----------------------	Client creation ----------------------------
+//  -------------------------------------------------------Client creation ------------------------------------------------------------------------
 	
 	@When("Clicks the client side menu")
 	public void clicks_the_client_side_menu() throws InterruptedException 
@@ -31,7 +31,7 @@ public class ClientSteps extends Baseclass
 	@Then("Make sure that the client information page should appears")
 	public void make_sure_that_the_client_information_page_should_appears() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    String actualResult=attributes.getHomePageHeaderLable();
 	    Assert.assertEquals(actualResult, "Clients");
 	}
@@ -59,7 +59,8 @@ public class ClientSteps extends Baseclass
 		String startdate="2023/Oct/5";
 		String enddate="2024/Oct/5";
 		String clientType="Live";
-		clients=new TestClients(driver);
+			
+	    clients=new TestClients(driver);
 	    clients.setClientName(clientName);
 	    adminUser.setMobileNumber(mobileNumber);
 	    adminUser.setEmail(emailID);
@@ -90,19 +91,19 @@ public class ClientSteps extends Baseclass
 	@Then("The new client should be successfully created with confirmation message")
 	public void the_new_client_should_be_successfully_created_with_confirmation_message() throws InterruptedException 
 	{
-		Thread.sleep(1000);
-        Assert.assertTrue(attributes.ConfirmationMassageDisplayed());     
+	      Thread.sleep(1000);
+              Assert.assertTrue(attributes.ConfirmationMassageDisplayed());     
 	}
 
 	@Then("The admin should be redirected to client details page")
 	public void the_admin_should_be_redirected_to_client_details_page() throws InterruptedException 
 	{
-		System.out.println("URL");
-		 Thread.sleep(2000);
+	     System.out.println("URL");
+	     Thread.sleep(2000);
 	     Assert.assertEquals(attributes.getcurrectURL(), "https://parklens-admin.tech-active.com/clients");
 	}
 	
-//  -----------------------	Client update ----------------------------
+//  ---------------------------------------------------------------Client update -----------------------------------------------------------------------------------
 	
 	@Then("Clicks the edit icon")
 	public void clicks_the_edit_icon() 
@@ -114,15 +115,15 @@ public class ClientSteps extends Baseclass
 	@Then("Verify i should navigate to the edit client page")
 	public void verify_i_should_navigate_to_the_edit_client_page() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Edit Client");
 	}
 
 	@When("Change all the required client informations:")
 	public void change_all_the_required_client_informations() throws InterruptedException 
 	{
-		Thread.sleep(2000);
-		clients=new TestClients(driver);
+	    Thread.sleep(2000);
+	    clients=new TestClients(driver);
 	    clients.setClientName("Client A");
 	    adminUser.setMobileNumber("8795412300");
 	    adminUser.setEmail("clientg@gmail.com");
@@ -153,19 +154,19 @@ public class ClientSteps extends Baseclass
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 	}
 	
-/*  ------------------------------Kebab menu redirections -----------------------------------------------------*/
+/*  -----------------------------------------------------Kebab menu redirections -----------------------------------------------------*/
 	
 	@When("Click on kebab menu icon")
 	public void click_on_kebab_menu_icon() throws InterruptedException 
 	{
 		homePage=new TestHomePage(driver);
-	    homePage.clickOnKebabMenuIcon();
+	        homePage.clickOnKebabMenuIcon();
 	}
 
 	@When("Click on lots in the kebab menu popup")
 	public void click_on_lots_in_the_kebab_menu_popup() throws InterruptedException 
 	{
-	    homePage.selectKebabMenuOption("lots");
+	       homePage.selectKebabMenuOption("lots");
 	}
 
 	@Then("Verify that the lots details page should be displayed")
@@ -173,7 +174,7 @@ public class ClientSteps extends Baseclass
 	{
 		attributes=new TestAttributes(driver);
 		System.out.println("lot option :"+attributes.getHomePageHeaderLable());
-	    Assert.assertEquals(attributes.getHomePageHeaderLable(),"Lots");
+	        Assert.assertEquals(attributes.getHomePageHeaderLable(),"Lots");
 	}
 
 	@When("Click on cameras in the kebab menu popup")
@@ -227,7 +228,7 @@ public class ClientSteps extends Baseclass
 		driver.switchTo().window(childparent);
 		System.out.println("ChildWindow : "+driver.getTitle());
 
-        attributes=new TestAttributes(driver);
+                attributes=new TestAttributes(driver);
 		Assert.assertEquals(attributes.getHomePageHeaderLable(),"Dashboard");
 		
 		}
