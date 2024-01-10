@@ -36,7 +36,11 @@ public class AttributeValueSteps extends Baseclass
 	{
 	   Assert.assertEquals(attributes.getAddPageHeaderLable(), "New Attribute Value"); 
 	}
-//
+
+
+/*--------------------------------------------------Data driven testing Using excel data-----------------------------------------------------------------*/
+
+	
 //	@When("Fill all the required attribute value informations:")
 //	public void fill_all_the_required_attribute_value_information() throws IOException, InterruptedException 
 //	{
@@ -74,11 +78,11 @@ public class AttributeValueSteps extends Baseclass
 	@When("Fill all the required attribute value informations:")
 	public void fill_all_the_required_attribute_value_information() throws IOException, InterruptedException 
 	{
-		attributeValue.setAttributeDropdownRandomly();
-    	attributeValue.setAttributeValueName("EV");
-    	attributes.setDescription("this is Ev ");
-      //attributeValue.clickOnClientDropdown();
-    	attributeValue.setClientDropdownRandomly();
+	    attributeValue.setAttributeDropdownRandomly();
+    	    attributeValue.setAttributeValueName("EV");
+    	    attributes.setDescription("this is Ev ");
+          //attributeValue.clickOnClientDropdown();
+    	    attributeValue.setClientDropdownRandomly();
     	
 	}
 
@@ -102,7 +106,7 @@ public class AttributeValueSteps extends Baseclass
 	@Then("Verify i should navigate to the edit attribute values page")
 	public void verify_i_should_navigate_to_the_edit_attribute_values_page() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Edit Attribute Value");
 	}
 
@@ -116,7 +120,7 @@ public class AttributeValueSteps extends Baseclass
 	@Then("The attribute value should successfully updated with confirmation message")
 	public void the_attribute_value_should_successfully_updated_with_confirmation_message() throws InterruptedException 
 	{
-		Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
+	    Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 
 	}
