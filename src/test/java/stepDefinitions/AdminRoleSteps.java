@@ -19,7 +19,7 @@ public class AdminRoleSteps extends Baseclass
 	@When("Clicks the admin roles header tab")
 	public void clicks_the_admin_roles_tab() throws InterruptedException 
 	{
-		String tab="Admin Roles";
+	    String tab="Admin Roles";
 		
 	    attributeValue=new TestAttributeValues(driver);
 	    attributeValue.clickOnHeaderTab(tab);
@@ -29,18 +29,18 @@ public class AdminRoleSteps extends Baseclass
 	@Then("Make sure that the admin roles information page should appears")
 	public void make_sure_that_the_admin_roles_information_page_should_appears() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    String expectedResult="Admin Roles";
 	    Thread.sleep(1000);
-		String actualResult=attributes.getHomePageHeaderLable();
-		Assert.assertEquals(expectedResult,actualResult);
+	    String actualResult=attributes.getHomePageHeaderLable();
+	    Assert.assertEquals(expectedResult,actualResult);
 	}
 
 	@Then("Verify i should navigate to the add admin roles page")
 	public void verify_i_should_navigate_to_the_add_admin_roles_page() throws InterruptedException 
 	{
-		String expectedResult="Add Admin Roles";
-		String actualResult=attributes.getAddPageHeaderLable();
+	    String expectedResult="Add Admin Roles";
+	    String actualResult=attributes.getAddPageHeaderLable();
 	    Assert.assertEquals(expectedResult, actualResult);
 	}
 
@@ -85,7 +85,7 @@ public class AdminRoleSteps extends Baseclass
 	@Then("Verify i should navigate to the edit admin roles page")
 	public void verify_i_should_navigate_to_the_edit_admin_roles_page() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Edit Admin Roles"); 
 	}
 
@@ -93,7 +93,7 @@ public class AdminRoleSteps extends Baseclass
 	public void change_all_the_required_admin_role_informations() 
 	{
 	    clientRoles=new TestClientRoles(driver);
-		clientRoles.setPermissionTitle(randomName());
+	    clientRoles.setPermissionTitle(randomName());
 	}
 
 	@Then("The admin role should successfully updated with confirmation message")
@@ -110,7 +110,7 @@ public class AdminRoleSteps extends Baseclass
 	@When("Get the id in the table")
 	public void Get_the_id_in_the_table()
 	{
-		 WebElement records=driver.findElement(By.xpath("((//tbody/tr)[5]/td)[1]"));
+	      WebElement records=driver.findElement(By.xpath("((//tbody/tr)[5]/td)[1]"));
 	      getid=records.getText();
 	}
 
@@ -121,7 +121,7 @@ public class AdminRoleSteps extends Baseclass
 	    adminUser=new TestAddAdminUsers(driver);
 	    adminUser.scrollIntoView(driver, driver.findElement(By.xpath("//button[.=' Delete']")));
 	    Thread.sleep(1000);
-		adminUser.clicksOnDeleteButton();
+	    adminUser.clicksOnDeleteButton();
 	}
 
 	@Then("The admin role should successfully deleted with confirmation message")
