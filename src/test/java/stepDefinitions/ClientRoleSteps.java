@@ -23,18 +23,18 @@ public class ClientRoleSteps extends Baseclass
 	@Then("Make sure that the client roles information page should appears")
 	public void make_sure_that_the_client_roles_information_page_should_appears() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    String expectedResult="Clients Roles";
 	    Thread.sleep(1000);
-		String actualResult=attributes.getHomePageHeaderLable();
-		Assert.assertEquals(expectedResult,actualResult);
+	    String actualResult=attributes.getHomePageHeaderLable();
+	    Assert.assertEquals(expectedResult,actualResult);
 	}
 
 	@Then("Verify i should navigate to the add client roles page")
 	public void verify_i_should_navigate_to_the_add_client_roles_page() throws InterruptedException 
 	{
-		String expectedResult="Add Client Roles";
-		String actualResult=attributes.getAddPageHeaderLable();
+	    String expectedResult="Add Client Roles";
+	    String actualResult=attributes.getAddPageHeaderLable();
 	    Assert.assertEquals(expectedResult, actualResult);
 	}
 
@@ -48,7 +48,7 @@ public class ClientRoleSteps extends Baseclass
 	@When("Select the clients")
 	public void select_the_clients() throws InterruptedException 
 	{
-		attributeValue.setClientDropdownRandomly();
+	    attributeValue.setClientDropdownRandomly();
 	}
 
 	@When("Select all the permissions")
@@ -78,21 +78,21 @@ public class ClientRoleSteps extends Baseclass
 	@Then("Verify i should navigate to the edit client roles page")
 	public void verify_i_should_navigate_to_the_edit_client_roles_page() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Edit Client Roles");
 	}
 
 	@When("Change all the required client role informations:")
 	public void change_all_the_required_client_role_informations() 
 	{
-		 clientRoles=new TestClientRoles(driver);
-		 clientRoles.setPermissionTitle(randomName());
+	     clientRoles=new TestClientRoles(driver);
+	     clientRoles.setPermissionTitle(randomName());
 	}
 
 	@Then("The client role should successfully updated with confirmation message")
 	public void the_client_role_should_successfully_updated_with_confirmation_message() throws InterruptedException 
 	{
-		Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
+	    Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 	}
 	
