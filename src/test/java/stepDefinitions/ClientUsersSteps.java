@@ -17,24 +17,24 @@ public class ClientUsersSteps extends Baseclass
 	@When("Clicks the users side menu")
 	public void clicks_the_users_side_menu() throws InterruptedException 
 	{
-		String sidemenuName="Users";
+	    String sidemenuName="Users";
 		
 	    adminUser=new TestAddAdminUsers(driver);
 	    adminUser.clicksSideMenu(sidemenuName);
-        Thread.sleep(2000);
+            Thread.sleep(2000);
 	}
 
 	@Then("Make sure that the client users information page should appears")
 	public void make_sure_that_the_client_users_information_page_should_appears() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getHomePageHeaderLable(), "Users");
 	}
 
 	@Then("Verify i should navigate to the add client user page")
 	public void verify_i_should_navigate_to_the_add_client_user_page() throws InterruptedException 
 	{
-	   Assert.assertEquals(attributes.getAddPageHeaderLable(), "New Client User");
+	    Assert.assertEquals(attributes.getAddPageHeaderLable(), "New Client User");
 	   
 	}
 
@@ -44,7 +44,7 @@ public class ClientUsersSteps extends Baseclass
 		
 		try 
 		{
-		    sites = new TestSites(driver);
+		        sites = new TestSites(driver);
 			Thread.sleep(5000);
 			sites.selectParticularClientOnDropdown("parklens");
 			Thread.sleep(2000);
@@ -53,7 +53,7 @@ public class ClientUsersSteps extends Baseclass
 			adminUser.setEmail(randomEmail());
 			adminUser.setPassword("User123@#");
 
-		    users = new TestClientUsers(driver);
+		        users = new TestClientUsers(driver);
 			Thread.sleep(2000);
 			users.setRetypePassword("User123@#");
 			users.setName("Anil-user1");
@@ -87,7 +87,7 @@ public class ClientUsersSteps extends Baseclass
 	@Then("Verify i should navigate to the edit client user page")
 	public void verify_i_should_navigate_to_the_edit_client_user_page() throws InterruptedException 
 	{
-		attributes=new TestAttributes(driver);
+	    attributes=new TestAttributes(driver);
 	    Assert.assertEquals(attributes.getEditPageHeaderLable(), "Edit Client User");
 
 	}
@@ -106,7 +106,7 @@ public class ClientUsersSteps extends Baseclass
 	@Then("The client user should successfully updated with confirmation message")
 	public void the_client_user_should_successfully_updated_with_confirmation_message() throws InterruptedException 
 	{
-		Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
+	    Assert.assertTrue(attributes.ConfirmationMassageDisplayed());
 	    System.out.println("anil : "+attributes.ConfirmationMassageDisplayed());
 
 	}
